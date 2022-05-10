@@ -1,0 +1,835 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  border-radius: 10px;
+}
+
+body {
+  background: #F1F1F1;
+  font-family: 'Roboto', sans-serif;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark {
+  background: #111111;
+}
+
+@media screen and (min-width: 600px) {
+  .grid {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "cabe cabe cabe cabe" "carru carru carru carru" "musi main main main" "foot foot foot foot";
+    grid-gap: 10px;
+    text-align: center;
+  }
+  .cabecera, .footer, .carrusel, .carrusel1, .boton1 {
+    height: 180px;
+  }
+  .imagen {
+    height: 100%;
+    width: 150px;
+  }
+  .cabecera {
+    margin-top: 5px;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: cabe;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  }
+  body.dark .cabecera {
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .cabecera .fondo {
+    width: 100%;
+    height: 150px;
+  }
+  .texto {
+    background: #C8C8C8;
+    opacity: 75%;
+    color: #111111;
+    margin-top: 50px;
+    font-family: "Trade Winds";
+    font-size: 40px;
+  }
+  body.dark .texto {
+    background: #242B3C;
+    color: #C8C8C8;
+  }
+  .contenido {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 3;
+    grid-area: main;
+    background: #C8C8C8;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  }
+  body.dark .contenido {
+    background: #242B3C;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .footer {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: foot;
+    background: #C8C8C8;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  }
+  .footer a {
+    list-style: none;
+    color: #111111;
+    margin-left: 650px;
+    text-decoration: none;
+    font-family: "Trade Winds";
+    font-size: 20px;
+  }
+  body.dark .footer a {
+    color: #FEFEFE;
+  }
+  body.dark .footer {
+    background: #222222;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  footer .over {
+    width: 100%;
+    height: 100%;
+    color: #111111;
+    text-shadow: 1px 1px 1px #333;
+  }
+  body.dark footer .over {
+    color: #FEFEFE;
+  }
+  .over .h21 {
+    margin-left: 610px;
+  }
+  .over .h22 {
+    margin-left: 560px;
+  }
+  .logos {
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+  }
+  .container, .botonmenu, .nav {
+    float: right;
+    position: absolute;
+  }
+  .container {
+    margin: auto;
+    top: 10%;
+    left: 0%;
+    margin-left: 90%;
+  }
+  #palanca {
+    display: none;
+  }
+  .botonmenu {
+    z-index: 999;
+    width: 43px;
+    height: 43px;
+    background: #242B3C;
+    border-radius: 100%;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-box-shadow: 1px 3px 10px o #222222;
+            box-shadow: 1px 3px 10px o #222222;
+    cursor: pointer;
+  }
+  .botonmenu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+  .botonmenu:before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: #242B3C;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .botonmenu:after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: #242B3C;
+  }
+  .nav {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    opacity: 0;
+    top: 13px;
+    left: -50px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background: white;
+    width: 125px;
+    border-radius: 5px;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    -webkit-box-shadow: 2px 3px 10px 0 #242B3C;
+            box-shadow: 2px 3px 10px 0 #242B3C;
+  }
+  body.dark .nav {
+    background: #222222;
+  }
+  .nav a {
+    text-align: center;
+    display: block;
+    margin: 20px 0;
+    color: #111111;
+    text-decoration: none;
+    font-family: "Trade Winds";
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  body.dark .nav a {
+    color: #FEFEFE;
+  }
+  .nav a:hover {
+    color: #5f5f5f;
+  }
+  body.dark .nav a:hover {
+    color: #DFDFDF;
+  }
+  #palanca:checked ~ .nav {
+    opacity: 1;
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+  #palanca:checked ~ .botonmenu {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    -webkit-box-shadow: 0 0 0 0 transparent;
+            box-shadow: 0 0 0 0 transparent;
+  }
+  .musica {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: musi;
+    background: #C8C8C8;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  }
+  body.dark .musica {
+    background: #222222;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .musica a {
+    background: #A0C5CC;
+    color: #111111;
+    padding: 50px;
+    text-decoration: none;
+    font-family: "Anton";
+    font-size: 40px;
+  }
+  body.dark .musica a {
+    background: #242B3C;
+    color: #FEFEFE;
+  }
+  .codqr {
+    width: 100px;
+    height: 100px;
+  }
+  ul,
+  .musica ul * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .musica ul {
+    margin: 10px auto;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    font-size: 18px;
+  }
+  .musica ul li {
+    list-style: none;
+    font-family: "Anton";
+    margin: 20px;
+    padding: 10px;
+    background: #A0C5CC;
+  }
+  body.dark .musica ul li {
+    color: #FEFEFE;
+    background: #242B3C;
+  }
+  .musica ul li a {
+    display: block;
+    padding: 10px 10px 10px 20px;
+    background: #333;
+    color: #eee;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #666;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .musica ul li ul {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    -webkit-transition: .3s all ease-in;
+    transition: .3s all ease-in;
+  }
+  .musica ul li li a {
+    padding: 10px 10px 10px 40px;
+    background: #999;
+    color: #000;
+    font-size: 16px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .musica ul li li:last-child a {
+    border-bottom: 0;
+  }
+  .musica ul li:hover ul {
+    max-height: 300px;
+    -webkit-transition: .3s all ease-in;
+    transition: .3s all ease-in;
+  }
+  .musica ul li a:hover {
+    background: #666;
+    color: #fff;
+  }
+  .boton1 {
+    width: 400px;
+    height: 200px;
+  }
+  .boton {
+    float: right;
+    height: 30px;
+    background: #C8C8C8;
+    padding: 10px;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  }
+  body.dark .boton {
+    background: #222222;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .funcionalidad {
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    outline: none;
+  }
+  .funcionalidad::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #FEFEFE;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    -webkit-transition: .3 ease all;
+    transition: .3 ease all;
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  .funcionalidad.active {
+    background: orange;
+    color: #111111;
+  }
+  .funcionalidad.active::after {
+    right: 0;
+    left: unset;
+  }
+  .funcionalidad span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #FEFEFE;
+  }
+  #miImagen {
+    width: 100%;
+    height: 100%;
+  }
+  .carrusel {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: carru;
+    background: #C8C8C8;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+    width: 100%;
+    overflow: hidden;
+  }
+  body.dark .carrusel {
+    background: #222222;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .carrusel ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    width: 70%;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation: cambio 20s infinite linear;
+            animation: cambio 20s infinite linear;
+  }
+  .carrusel li {
+    width: 70%;
+    list-style: none;
+  }
+  .carrusel img {
+    width: 100%;
+  }
+  @-webkit-keyframes cambio {
+    0% {
+      margin-left: 0;
+    }
+    20% {
+      margin-left: 0;
+    }
+    20% {
+      margin-left: -48%;
+    }
+    40% {
+      margin-left: -48%;
+    }
+    40% {
+      margin-left: -90%;
+    }
+    60% {
+      margin-left: -90%;
+    }
+    60% {
+      margin-left: -142%;
+    }
+    80% {
+      margin-left: -142%;
+    }
+    80% {
+      margin-left: -196%;
+    }
+    100% {
+      margin-left: -196%;
+    }
+  }
+  @keyframes cambio {
+    0% {
+      margin-left: 0;
+    }
+    20% {
+      margin-left: 0;
+    }
+    20% {
+      margin-left: -48%;
+    }
+    40% {
+      margin-left: -48%;
+    }
+    40% {
+      margin-left: -90%;
+    }
+    60% {
+      margin-left: -90%;
+    }
+    60% {
+      margin-left: -142%;
+    }
+    80% {
+      margin-left: -142%;
+    }
+    80% {
+      margin-left: -196%;
+    }
+    100% {
+      margin-left: -196%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .musica {
+    display: none;
+  }
+  .grid {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: "cabe cabe cabe" "carru carru carru" "main main main" "foot foot foot";
+    grid-gap: 10px;
+    text-align: center;
+  }
+  .cabecera, .footer, .carrusel, .carrusel1, .boton1 {
+    height: 180px;
+  }
+  .cabecera {
+    margin-top: 5px;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: cabe;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+    background-image: url("multimedia/portadamini.jpg");
+  }
+  body.dark .cabecera {
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .cabecera .fondo {
+    width: 100%;
+    height: 150px;
+  }
+  .texto {
+    color: #111111;
+    opacity: 75%;
+    margin-top: 10px;
+    background: #C8C8C8;
+    font-family: "Trade Winds";
+    font-size: 30px;
+  }
+  body.dark .texto {
+    background: #242B3C;
+    color: #C8C8C8;
+  }
+  .contenido {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: main;
+    width: 100%;
+    height: 600px;
+    background: #B0C1CB;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  }
+  body.dark .contenido {
+    background: #242B3C;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .footer {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: foot;
+    background: #C8C8C8;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  }
+  .footer a {
+    list-style: none;
+    color: #111111;
+    text-decoration: none;
+    font-family: "Trade Winds";
+    font-size: 20px;
+  }
+  body.dark .footer a {
+    color: #FEFEFE;
+  }
+  body.dark .footer {
+    background: #222222;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  footer .over {
+    width: 100%;
+    height: 100px;
+    color: #111111;
+    text-shadow: 1px 1px 1px #333;
+  }
+  body.dark footer .over {
+    color: #FEFEFE;
+  }
+  a {
+    margin-left: 200px;
+  }
+  .over .h21 {
+    margin-left: 160px;
+  }
+  .over .h22 {
+    margin-left: 110px;
+  }
+  .aside {
+    display: none;
+  }
+  .container, .botonmenu, .nav {
+    float: right;
+    position: absolute;
+  }
+  .container {
+    margin: auto;
+    top: 10%;
+    left: 0%;
+    margin-left: 90%;
+  }
+  #palanca {
+    display: none;
+  }
+  .botonmenu {
+    z-index: 999;
+    width: 46px;
+    height: 46px;
+    background: #242B3C;
+    border-radius: 100%;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-box-shadow: 1px 3px 10px o #222222;
+            box-shadow: 1px 3px 10px o #222222;
+    cursor: pointer;
+  }
+  .botonmenu img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+  .botonmenu:before {
+    content: '';
+    width: 25px;
+    height: 2px;
+    background: #242B3C;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .botonmenu:after {
+    content: '';
+    width: 25px;
+    height: 2px;
+    background: #242B3C;
+  }
+  .nav {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    opacity: 0;
+    top: 13px;
+    left: -50px;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background: white;
+    width: 100px;
+    border-radius: 5px;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    -webkit-box-shadow: 2px 3px 10px 0 #242B3C;
+            box-shadow: 2px 3px 10px 0 #242B3C;
+  }
+  body.dark .nav {
+    background: #222222;
+  }
+  .nav a {
+    text-align: center;
+    display: block;
+    margin: 25px 0;
+    color: #111111;
+    text-decoration: none;
+    font-family: "Trade Winds";
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  body.dark .nav a {
+    color: #FEFEFE;
+  }
+  .nav a:hover {
+    color: #5f5f5f;
+  }
+  body.dark .nav a:hover {
+    color: #DFDFDF;
+  }
+  #palanca:checked ~ .nav {
+    opacity: 1;
+    -webkit-transform: translateY(10%);
+            transform: translateY(10%);
+  }
+  #palanca:checked ~ .botonmenu {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+    -webkit-box-shadow: 0 0 0 0 transparent;
+            box-shadow: 0 0 0 0 transparent;
+  }
+  .carrusel {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: carru;
+    background: #C8C8C8;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+  }
+  body.dark .carrusel {
+    background: #222222;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .carrusel ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    width: 70%;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation: cambio 15s infinite linear;
+            animation: cambio 15s infinite linear;
+  }
+  .carrusel li {
+    width: 70%;
+    list-style: none;
+  }
+  .carrusel img {
+    width: 100%;
+  }
+  @-webkit-keyframes cambio {
+    0% {
+      margin-left: 0;
+    }
+    20% {
+      margin-left: 0;
+    }
+    20% {
+      margin-left: -95%;
+    }
+    40% {
+      margin-left: -95%;
+    }
+    40% {
+      margin-left: -190%;
+    }
+    60% {
+      margin-left: -190%;
+    }
+    60% {
+      margin-left: -285%;
+    }
+    80% {
+      margin-left: -285%;
+    }
+    80% {
+      margin-left: -380%;
+    }
+    100% {
+      margin-left: -380%;
+    }
+  }
+  @keyframes cambio {
+    0% {
+      margin-left: 0;
+    }
+    20% {
+      margin-left: 0;
+    }
+    20% {
+      margin-left: -95%;
+    }
+    40% {
+      margin-left: -95%;
+    }
+    40% {
+      margin-left: -190%;
+    }
+    60% {
+      margin-left: -190%;
+    }
+    60% {
+      margin-left: -285%;
+    }
+    80% {
+      margin-left: -285%;
+    }
+    80% {
+      margin-left: -380%;
+    }
+    100% {
+      margin-left: -380%;
+    }
+  }
+  .boton1 {
+    width: 240px;
+    height: 100px;
+  }
+  .boton {
+    float: rigth;
+    height: 30px;
+    background: #C8C8C8;
+    padding: 10px;
+    -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+            box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  }
+  body.dark .boton {
+    background: #222222;
+    -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.16);
+  }
+  .funcionalidad {
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    outline: none;
+  }
+  .funcionalidad::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #FEFEFE;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    -webkit-transition: .3 ease all;
+    transition: .3 ease all;
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  .funcionalidad.active {
+    background: orange;
+    color: #111111;
+  }
+  .funcionalidad.active::after {
+    right: 0;
+    left: unset;
+  }
+  .funcionalidad span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #FEFEFE;
+  }
+  #miImagen {
+    width: 100%;
+    height: 100%;
+  }
+}
+/*# sourceMappingURL=index.css.map */

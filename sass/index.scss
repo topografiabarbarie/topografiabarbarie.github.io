@@ -1,0 +1,745 @@
+//------------------------------Variables-------------------------
+$negro: #111111;
+$blanco: #FEFEFE;
+$grisOscuro: #222222;
+$grisOscuroMenu:#333333 ;
+$grisClaro: #C8C8C8;
+$grisClaroMenu:#DFDFDF  ;
+$azul: #B0C1CB  ;
+$azulOscuro: #242B3C   ;
+$tipoletra1: 'Trade Winds', ;
+$tipoletra2:  'Anton',;
+$rosita:#F284B2 ;
+
+$sombraDark: 10px 10px 20px rgba(170,170,170,.16);
+$sombraLigth: 10px 10px 20px rgba(0,0,0,.16);
+
+* {
+    margin:0px;
+    padding:0px;
+    border-radius: 10px;
+}
+//------------------------------------PARA TODOS-------------------------------------
+body{
+    background: #F1F1F1 ;
+    font-family: 'Roboto', sans-serif;
+    transition: .3s ease all;
+
+    &.dark {
+        background: $negro;
+    }
+}
+
+//---------------------------------MAYOR DE 600PX-----------------------------------
+
+@media screen and (min-width: 600px){
+//------------------------------Grid-------------------------------
+.grid {
+
+    display: grid;
+
+    grid-template-areas: "cabe cabe cabe cabe"
+                         "carru carru carru carru"
+                         "musi main main main"
+                         "foot foot foot foot";
+    grid-gap: 10px;
+    text-align: center;
+}
+    //------------------------------------------------------------------------------------------
+    .cabecera, .footer, .carrusel, .carrusel1, .boton1{
+        height: 180px;
+    }
+    .imagen{
+        height: 100%;
+        width: 150px;
+    }
+    //-----------------------------------------CABECERA-----------------------------------------
+    .cabecera{
+        margin-top: 5px;
+        grid-area: cabe;
+        box-shadow: $sombraDark;
+        
+
+        body.dark &{
+            box-shadow: $sombraLigth;
+        }
+        .fondo{
+            width: 100%; 
+            height: 150px;
+        }
+    }
+    .texto{
+        background: $grisClaro;
+        opacity: 75%;
+        color: $negro;
+        margin-top: 50px;
+        font-family: $tipoletra1 ;
+        font-size: 40px;
+        
+        body.dark &{
+            background: $azulOscuro;
+            color: $grisClaro;
+        }
+    }
+
+    //-------------------------------------------------CONTENIDO---------------------------------
+
+    .contenido{
+        grid-area: main; 
+        background: $grisClaro;
+        box-shadow: $sombraDark;
+
+        body.dark &{
+            background: $azulOscuro;
+            box-shadow: $sombraLigth;
+        }
+    }
+    //-----------------------------------------------------FOOTER------------------------------------
+    .footer{
+        grid-area: foot; 
+        background: $grisClaro;
+        box-shadow: $sombraDark;
+        a{
+            list-style: none;
+            color: $negro;
+            margin-left: 650px;
+            text-decoration: none;
+            font-family: $tipoletra1;
+            font-size: 20px;
+            body.dark &{
+                color: $blanco;
+            }
+        
+        }
+        body.dark &{
+            background: $grisOscuro;
+            box-shadow: $sombraLigth;
+        }
+    }
+    footer .over{
+        width: 100%;
+          height: 100%;
+          color: $negro;
+          text-shadow: 1px 1px 1px #333;
+          body.dark &{
+            color: $blanco;
+          }
+    }
+    .over .h21{
+        margin-left: 610px;
+    }
+    .over .h22{
+        margin-left: 560px;
+    }
+    .logos{
+        margin: 10px;
+        height: 50px;
+        width: 50px;
+    }
+
+    //----------------------------------------------MENU-----------------------------------
+    .container, .botonmenu, .nav{
+        float: right;
+        position: absolute;
+    }
+
+    .container{
+        margin: auto;
+        top: 10%;
+        left: 0%;
+        margin-left: 90%;
+    }
+    #palanca{
+        display: none;
+    }
+    .botonmenu{
+        z-index: 999;
+        width:43px ;
+        height: 43px;
+        background:$azulOscuro;
+        border-radius: 100%;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 1px 3px 10px o $grisOscuro;
+        cursor: pointer;
+    }
+    .botonmenu img{
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .botonmenu:before{
+        
+        content: '';
+        width: 20px;
+        height: 2px;
+        background: $azulOscuro;
+        transform: rotate(90deg);
+    }
+    .botonmenu:after{
+        content: '';
+        width: 20px;
+        height: 2px;
+        background: $azulOscuro;
+    }
+    .nav{
+        transform: translateY(-10%);//para que se mueva hacia abajo :-)
+        opacity: 0;
+        top: 13px;
+        left: -50px;
+        transition: all 0.5s ease-in-out;
+        background: white;
+        width: 125px;
+        border-radius: 5px;
+        transform: translateY(0%);
+        box-shadow: 2px 3px 10px 0 $azulOscuro;
+        body.dark &{
+            background: $grisOscuro;
+        }
+
+    }
+    .nav a{
+        text-align: center;
+        display: block;
+        margin: 20px 0;
+        color: $negro;
+        text-decoration: none;
+        font-family: $tipoletra1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        body.dark &{
+            color: $blanco;
+        }
+
+    }
+
+    .nav a:hover{
+       color: #5f5f5f; 
+       body.dark &{
+           color: $grisClaroMenu;
+       }
+    }
+    
+    #palanca:checked ~ .nav{
+        opacity: 1;
+        transform: translateY(10%);
+
+    }
+    #palanca:checked ~ .botonmenu{
+        transform: rotate(135deg);
+        box-shadow: 0 0 0 0 transparent ;
+    }
+    //---------------------aside------------------
+    
+    .musica{
+        grid-area: musi; 
+        background: $grisClaro;
+        box-shadow: $sombraDark;
+
+        body.dark &{
+            background: $grisOscuro;
+            box-shadow: $sombraLigth;
+        }
+        
+    } 
+    .musica a{
+        background: #A0C5CC ;
+        color: $negro;
+        padding: 50px;
+        text-decoration: none;
+        font-family: $tipoletra2;
+        font-size: 40px;
+
+        body.dark &{
+            background: $azulOscuro;
+            color: $blanco;
+        }
+    }
+    .codqr{
+        width: 100px;
+        height: 100px;
+    }   
+    ul,
+.musica ul * {
+margin: 0;
+padding: 0;
+border: 0;
+}
+.musica ul {
+margin: 10px auto;
+padding: 0;
+list-style: none;
+width: 100%;
+font-size: 18px;
+}
+.musica ul li {
+list-style: none;
+font-family: $tipoletra2;
+margin: 20px;
+padding: 10px;
+background: #A0C5CC  ;
+
+body.dark &{
+    color: $blanco;
+    background: $azulOscuro;
+}
+}
+.musica ul li a {
+display: block;
+padding: 10px 10px 10px 20px;
+background: #333;
+color: #eee;
+border-bottom: 1px solid #000;
+border-top: 1px solid #666;
+text-decoration: none;
+box-sizing: border-box;
+}
+.musica ul li ul {
+max-height: 0;
+margin: 0;
+padding: 0;
+list-style: none;
+overflow: hidden;
+transition: .3s all ease-in;
+}
+.musica ul li li a {
+padding: 10px 10px 10px 40px;
+background: #999;
+color: #000;
+font-size: 16px;
+border: 0;
+border-bottom: 1px solid #ccc;
+box-sizing: border-box;
+}
+.musica ul li li:last-child a {
+border-bottom: 0;
+}
+.musica ul li:hover ul {
+max-height: 300px;
+transition: .3s all ease-in;
+}
+.musica ul li a:hover {
+background: #666;
+color: #fff;
+}
+    //---------------------------------BOTON-----------------------------------
+.boton1{
+    width: 400px;
+    height: 200px;
+}
+.boton{
+    float:right;
+    height: 30px;
+    background: $grisClaro;
+    padding: 10px;
+    box-shadow: $sombraDark;
+
+    body.dark &{
+        background: $grisOscuro;
+        box-shadow: $sombraLigth;
+    }
+}
+.funcionalidad{
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    &::after{ 
+        content: ""; //para que puedan funcionar los demas estilos 
+        display: block; //caja
+        width: 30px;
+        height: 30px;
+        position: absolute; //para posicionarlo y que funcione el movimiento
+        background: $blanco; 
+        top: 0;// donde se situa el boton 
+        left: 0;
+        right: unset; //no esta seteada para que despues se cambie
+        border-radius: 100px;
+        transition: .3 ease all; //para que el estilo no se cambie muy brusco
+        box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+    }
+    &.active{
+        background: orange;
+        color: $negro;
+        &::after{
+            right: 0;
+            left: unset;
+        }
+    }
+    span{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        background: none;
+        color: $blanco;
+    }
+}
+
+#miImagen{
+    width: 100%;
+    height: 100%;
+}
+
+    //-------------------------------CARRUSEL--------------------------
+    .carrusel{
+        grid-area: carru;
+        background: $grisClaro;
+        box-shadow: $sombraDark;
+        width: 100%;
+        overflow: hidden;
+
+        body.dark &{
+            background: $grisOscuro;
+            box-shadow: $sombraLigth;
+        }
+        ul {
+            display: flex;
+            padding: 0;
+            width: 70%;
+              
+            animation-delay: 0s;
+            animation: cambio 20s infinite linear;
+        }
+          
+        li {
+            width: 70%;
+            list-style: none;
+        }
+          
+        img {
+            width: 100%;;
+        }
+          
+          @keyframes cambio {
+            0% {margin-left: 0;}
+            20% {margin-left: 0;}
+        
+            20% {margin-left: -48%;}
+            40% {margin-left: -48%;}
+            
+            40% {margin-left: -90%;}
+            60% {margin-left: -90%;}
+              
+            60% {margin-left: -142%;}
+            80% {margin-left: -142%;}
+            
+            80% {margin-left: -196%;}
+            100% {margin-left: -196%;}
+          }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .musica{
+        display: none;
+    }
+    //------------------------------Grid-------------------------------
+.grid {
+
+    display: grid;
+
+    grid-template-areas: "cabe cabe cabe"
+                         "carru carru carru"
+                         "main main main"
+                         "foot foot foot";
+    grid-gap: 10px;
+    text-align: center;
+}
+    //-------------------------------------CABECERA-----------------------------------------
+    .cabecera, .footer, .carrusel, .carrusel1, .boton1{
+        height: 180px;
+    }
+    
+    .cabecera{
+        margin-top: 5px;
+        grid-area: cabe;
+        box-shadow: $sombraDark;
+        background-image: url("multimedia/portadamini.jpg");
+        
+
+        body.dark &{
+            box-shadow: $sombraLigth;
+        }
+        .fondo{
+            width: 100%; 
+            height: 150px;
+        }
+    }
+    .texto{
+        color: $negro;
+        opacity: 75%;
+        margin-top: 10px;
+        background: $grisClaro;
+        font-family: $tipoletra1 ;
+        font-size: 30px;
+        
+        body.dark &{
+            background: $azulOscuro;
+            color: $grisClaro;
+        }
+    }
+//--------------------------------------------CONTENIDO----------------------------------
+    .contenido{
+        grid-area: main; 
+        width:100%;
+        height: 600px;
+        background: $azul;
+        box-shadow: $sombraDark;
+
+        body.dark &{
+            background: $azulOscuro;
+            box-shadow: $sombraLigth;
+        }
+    }
+
+//--------------------------------------PIE DE PAGINA---------------------------------
+.footer{
+    grid-area: foot; 
+    background: $grisClaro;
+    box-shadow: $sombraDark;
+    a{
+        list-style: none;
+        color: $negro;
+        text-decoration: none;
+        font-family: $tipoletra1;
+        font-size: 20px;
+        body.dark &{
+            color: $blanco;
+        }
+    }
+    body.dark &{
+        background: $grisOscuro;
+        box-shadow: $sombraLigth;
+    }
+}
+footer .over{
+    width: 100%;
+    height: 100px;
+    color: $negro;
+    text-shadow: 1px 1px 1px #333;
+    body.dark &{
+        color: $blanco;
+    }
+}
+a{
+    margin-left: 200px;
+}
+.over .h21{
+    margin-left: 160px;
+}
+.over .h22{
+    margin-left: 110px;
+}
+//-----------------------------------------ASIDE--------------------------------------
+.aside{
+    display: none;
+}
+
+    //----------------------------------------------MENU-----------------------------------
+    .container, .botonmenu, .nav{
+        float: right;
+        position: absolute;
+    }
+
+    .container{
+        margin: auto;
+        top: 10%;
+        left: 0%;
+        margin-left: 90%;
+    }
+    #palanca{
+        display: none;
+    }
+    .botonmenu{
+        z-index: 999;
+        width:46px ;
+        height: 46px;
+        background:$azulOscuro;
+        border-radius: 100%;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 1px 3px 10px o $grisOscuro;
+        cursor: pointer;
+    }
+    .botonmenu img{
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .botonmenu:before{
+        
+        content: '';
+        width: 25px;
+        height: 2px;
+        background: $azulOscuro;
+        transform: rotate(90deg);
+    }
+    .botonmenu:after{
+        content: '';
+        width: 25px;
+        height: 2px;
+        background: $azulOscuro;
+    }
+    .nav{
+        transform: translateY(-10%);//para que se mueva hacia abajo :-)
+        opacity: 0;
+        top: 13px;
+        left: -50px;
+        transition: all 0.5s ease-in-out;
+        background: white;
+        width: 100px;
+        border-radius: 5px;
+        transform: translateY(0%);
+        box-shadow: 2px 3px 10px 0 $azulOscuro;
+        body.dark &{
+            background: $grisOscuro;
+        }
+
+    }
+    .nav a{
+        text-align: center;
+        display: block;
+        margin: 25px 0;
+        color: $negro;
+        text-decoration: none;
+        font-family: $tipoletra1;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        body.dark &{
+            color: $blanco;
+        }
+
+    }
+
+    .nav a:hover{
+       color: #5f5f5f; 
+       body.dark &{
+           color: $grisClaroMenu;
+       }
+    }
+    
+    #palanca:checked ~ .nav{
+        opacity: 1;
+        transform: translateY(10%);
+
+    }
+    #palanca:checked ~ .botonmenu{
+        transform: rotate(135deg);
+        box-shadow: 0 0 0 0 transparent ;
+    }
+      
+
+    //-------------------------------CARRUSEL--------------------------
+    .carrusel{
+        grid-area: carru;
+        background: $grisClaro;
+        box-shadow: $sombraDark;
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+
+        body.dark &{
+            background: $grisOscuro;
+            box-shadow: $sombraLigth;
+        }
+        ul {
+            display: flex;
+            padding: 0;
+            width: 70%;
+              
+            animation-delay: 0s;
+            animation: cambio 15s infinite linear;
+        }
+          
+        li {
+            width: 70%;
+            list-style: none;
+        }
+          
+        img {
+            width: 100%;;
+        }
+          
+          @keyframes cambio {
+            0% {margin-left: 0;}
+            20% {margin-left: 0;}
+        
+            20% {margin-left: -95%;}
+            40% {margin-left: -95%;}
+            
+            40% {margin-left: -190%;}
+            60% {margin-left: -190%;}
+              
+            60% {margin-left: -285%;}
+            80% {margin-left: -285%;}
+            
+            80% {margin-left: -380%;}
+            100% {margin-left: -380%;}
+          }
+    }
+    //---------------------------------BOTON-----------------------------------
+.boton1{
+    width: 240px;
+    height: 100px;
+}
+.boton{
+    float:rigth;
+    height: 30px;
+    background: $grisClaro;
+    padding: 10px;
+    box-shadow: $sombraDark;
+
+    body.dark &{
+        background: $grisOscuro;
+        box-shadow: $sombraLigth;
+    }
+}
+.funcionalidad{
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    outline: none;
+    &::after{ 
+        content: ""; //para que puedan funcionar los demas estilos 
+        display: block; //caja
+        width: 30px;
+        height: 30px;
+        position: absolute; //para posicionarlo y que funcione el movimiento
+        background: $blanco; 
+        top: 0;// donde se situa el boton 
+        left: 0;
+        right: unset; //no esta seteada para que despues se cambie
+        border-radius: 100px;
+        transition: .3 ease all; //para que el estilo no se cambie muy brusco
+        box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+    }
+    &.active{
+        background: orange;
+        color: $negro;
+        &::after{
+            right: 0;
+            left: unset;
+        }
+    }
+    span{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        display: block;
+        background: none;
+        color: $blanco;
+    }
+}
+
+#miImagen{
+    width: 100%;
+    height: 100%;
+}
+}
